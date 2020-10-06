@@ -9,11 +9,5 @@ namespace Server.Models
     {
         public int Lattitude { get; set; }
         public int Longitude { get; set; }
-
-        public Location(int x, int y)
-        {
-            Lattitude = x;
-            Longitude = y;
-        }
     }
 }

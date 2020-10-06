@@ -27,7 +27,10 @@ namespace Server.Controllers
             {
                 Fullness = rng.Next(0, 100),
                 Battery = rng.Next(0, 100),
-                Location = new Location(rng.Next(0,65000),rng.Next(-232323,2343424))
+                Location = new Location {
+                    Lattitude = rng.Next(0,65000),
+                    Longitude = rng.Next(-232323,2343424) 
+                }
             })
 
             .ToArray();
