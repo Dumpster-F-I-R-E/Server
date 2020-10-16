@@ -5,9 +5,11 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Server.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("dumpster")]
     public class DumpsterController : ControllerBase
