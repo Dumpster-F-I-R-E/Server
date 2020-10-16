@@ -23,7 +23,7 @@ namespace Server.Controllers
 
         [HttpGet]
         public IEnumerable<Dumpster> Get()
-        {
+        {           
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new Dumpster
             {
