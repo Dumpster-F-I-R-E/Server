@@ -86,9 +86,14 @@ namespace Server.Controllers
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };
+            string msg = "User creation failed! Please check user details and try again.\n";
             var result = await userManager.CreateAsync(user, model.Password);
+            foreach(var error in result.Errors){
+                msg += error.ToString() + "\n";
+            }
+
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = msg });
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
